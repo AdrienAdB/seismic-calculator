@@ -1,0 +1,6 @@
+{
+  "short_name": "Seismic Calculator",
+  "name": "Seismic Calculator",
+  "start_url": ".",
+  "display": "standalone"
+}
