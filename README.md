@@ -2,7 +2,7 @@
 
 The idea is to collect formula commonly used in seismic surveys.
 
-Project visible here: https://acte.ltd/seismic/calculator
+Project visible here: cd https://acte.ltd/seismic/calculator
 
 ## How to use
 

@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
+    height: "100%"
   },
 }));
 
@@ -21,9 +22,7 @@ export default function Result(props){
   const classes = useStyles();
 
   return(
-
-  <div>
-    <Paper className={classes.root} elevation={2} >
+    <Paper className={classes.root} elevation={2}>
       <Typography variant="h6" gutterBottom align="center">
         {props.title}
       </Typography>
@@ -34,8 +33,6 @@ export default function Result(props){
         {props.description}
       </Typography>
     </Paper>
-  </div>
-
   );
 
 

@@ -8,13 +8,20 @@ import SimpleTabs from './components/SimpleTabs';
 import ReloadButton from './components/ReloadButton';
 
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  wrapper: {
+    minHeight: "50vh"
+  },
+}));
 
 function Copyright() {
   return (
     <Box mt={2}>
       <Typography variant="body2" color="textSecondary" align="center">
         <Link color="primary" href="https://acte.ltd">
-          ACTE IT Services Ltd.
+          ACTE Services Ltd.
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -33,6 +40,9 @@ function OpenSourceProject(){
 
 
 export default function App() {
+
+  const classes = useStyles();
+
   return (
       <Container maxWidth="sm" >
 
@@ -46,7 +56,7 @@ export default function App() {
           <Typography variant="h4" component="h1" gutterBottom align="center">
             Seismic Calculator
           </Typography>
-          <Box my={4}>
+          <Box className={classes.wrapper} my={4} minHeigth='50vh'>
             <SimpleTabs />
           </Box>
           <Box mt={4}>
