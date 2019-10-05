@@ -1,12 +1,12 @@
 # Seismic Calculator
 
-The idea is to collect formula commonly used in seismic surveys.
+Gather commonly used formula in seismic surveys.
 
-Project visible here: cd https://acte.ltd/seismic/calculator
+Project visible here: https://acte.ltd/seismic/calculator
 
 ## How to use
 
-Install it and run:
+Install npm on you system and run:
 
 ```sh
 git clone https://github.com/AdrienAdB/seismic-calculator.git
