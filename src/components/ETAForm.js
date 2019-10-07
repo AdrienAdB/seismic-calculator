@@ -124,6 +124,9 @@ export default function ETAForm(){
 
   }, [speedK, distance]);
 
+  function handleFocus(e){
+    e.target.select();
+  }
 
 
   return (
@@ -143,6 +146,7 @@ export default function ETAForm(){
             }}
             value={distance}
             onInput={(e) => setDistance(e.target.value)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
 
@@ -159,6 +163,7 @@ export default function ETAForm(){
             }}
             value={speedK}
             onChange={(e) => setSpeedK(e.target.value)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
 

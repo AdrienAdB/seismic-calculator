@@ -42,6 +42,10 @@ export default function BoltVolumeForm(){
   }, [manufacturer, type, ml]);
 
 
+  function handleFocus(e){
+    e.target.select();
+  }
+
   return (
 
     <Grid container spacing={3}>
@@ -87,6 +91,7 @@ export default function BoltVolumeForm(){
             }}
             value={ml}
             onChange={(e) => setMl(e.target.value)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
 

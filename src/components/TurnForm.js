@@ -18,7 +18,6 @@ const defaultValues = {
   }
 }
 
-
 export default function TurnForm(){
 
   //speed in knots
@@ -59,6 +58,11 @@ export default function TurnForm(){
   }, [speedK, rate, focus, pi]);
 
 
+  function handleFocus(e){
+    setFocus(e.target.name);
+    e.target.select();
+  }
+
 
   return (
     <div>
@@ -78,6 +82,7 @@ export default function TurnForm(){
             }}
             value={speedK}
             onChange={(e) => setSpeedK(e.target.value)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
 
@@ -94,7 +99,7 @@ export default function TurnForm(){
             }}
             value={radius}
             onChange={(e) => setRadius(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
 
@@ -111,7 +116,7 @@ export default function TurnForm(){
             }}
             value={rate}
             onChange={(e) => setRate(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
+            onFocus={handleFocus}
             variant="outlined"/>
       </Grid>
     </Grid>
