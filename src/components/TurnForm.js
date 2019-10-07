@@ -35,33 +35,37 @@ export default function TurnForm(){
 
   const [focus, setFocus] = useState(null);
 
-
-  // set turn rate
-  useEffect(() => {
-
-    if( speedK && radius && focus && (focus !== 'rate') ){
-      var turnRate = 360*speedK*1852/(radius*120*pi);
-      setRate(turnRate.toFixed(1));
-    }
-
-  }, [speedK, radius, focus, pi]);
-
-
-  // set turn radius
-  useEffect(() => {
-
-    if(speedK && rate && (focus !== 'radius') ){
-      var turnRadius = 360/((2*pi*rate/(speedK*1852))*60);
-      setRadius(turnRadius.toFixed(0));
-    }
-
-  }, [speedK, rate, focus, pi]);
-
-
   function handleFocus(e){
     setFocus(e.target.name);
     e.target.select();
   }
+
+
+  // set turn rate and radius
+  // prevent infinite loop with input focus
+  useEffect(() => {
+
+    if(focus && speedK){
+
+      var turnRate = 360*speedK*1852/(radius*120*pi);
+      var turnRadius = 360/((2*pi*rate/(speedK*1852))*60);
+
+      switch (focus) {
+        case 'radius':
+          setRate(turnRate.toFixed(1));
+          break;
+        case 'rate':
+          setRadius(turnRadius.toFixed(0));
+          break;
+        case 'speedK':
+          setRadius(turnRadius.toFixed(0));
+          break;
+        default:
+
+      }
+
+    }
+  }, [speedK, rate, radius, focus, pi]);
 
 
   return (
