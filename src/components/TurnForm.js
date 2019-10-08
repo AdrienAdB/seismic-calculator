@@ -21,13 +21,13 @@ const defaultValues = {
 export default function TurnForm(){
 
   //speed in knots
-  const [speedK, setSpeedK] = useState(defaultValues.speedK);
+  const [speedK, setSpeedK] = useState(localStorage.getItem('turnFormSpeedK') || defaultValues.speedK);
 
   //turn radius in meters
-  const [radius, setRadius] = useState(defaultValues.turn.radius);
+  const [radius, setRadius] = useState(localStorage.getItem('turnFormRadius') || defaultValues.turn.radius);
 
   //turn rate in deg/min
-  const [rate, setRate] = useState(defaultValues.turn.rate);
+  const [rate, setRate] = useState(localStorage.getItem('turnFormRate') || defaultValues.turn.rate);
 
 
   //Maths
@@ -58,11 +58,15 @@ export default function TurnForm(){
           setRadius(turnRadius.toFixed(0));
           break;
         case 'speedK':
-          setRadius(turnRadius.toFixed(0));
+          setRate(turnRate.toFixed(1));
           break;
         default:
 
       }
+
+      localStorage.setItem('turnFormRate', turnRate.toFixed(1));
+      localStorage.setItem('turnFormRadius', turnRadius.toFixed(0));
+      localStorage.setItem('turnFormSpeedK', speedK);
 
     }
   }, [speedK, rate, radius, focus, pi]);

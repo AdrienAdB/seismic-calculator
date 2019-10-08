@@ -58,13 +58,12 @@ function displayETA(eta){
   }
 }
 
+
 function getETA(seconds){
 
     seconds = Number(seconds);
     var etaDate = new Date().setUTCSeconds(seconds);
     etaDate = new Date(etaDate);
-
-    //console.log(etaDate);
 
     var eta = {
       hours: addZero( etaDate.getUTCHours() ),
@@ -72,17 +71,17 @@ function getETA(seconds){
       seconds: addZero( etaDate.getUTCSeconds() ),
     };
 
-    console.log(eta);
+    //console.log(eta);
     return eta;
 
 }
 
 export default function ETAForm(){
 
-  const [distance, setDistance] = useState(defaultValues.distance);
+  const [distance, setDistance] = useState(localStorage.getItem('ETAForm.distance') || defaultValues.distance);
 
   //speed in knots
-  const [speedK, setSpeedK] = useState(defaultValues.speedK);
+  const [speedK, setSpeedK] = useState(localStorage.getItem('ETAForm.speedK') || defaultValues.speedK);
 
   //speed in meter/second
   const [speedMs, setSpeedMs] = useState(null);
@@ -99,33 +98,54 @@ export default function ETAForm(){
   //Maths
   const kntsToMs = 0.5144447;
 
-  //distance and speed
+  //calculate on speedK
   useEffect(() => {
+
+    //set time on speed
     var sMs = speedK*kntsToMs;
     var sKmS = sMs*3.6;
-
-    var t;
-    if(distance){
-      t = (distance/sMs).toFixed(1);
-      var eta = getETA(t);
-      setETA(eta);
-      t = secondsToTime(t);
-
-
-
-    } else {
-      t = 'N/A';
-    }
-
-    setTime(t);
 
     setSpeedMs(sMs.toFixed(2));
     setSpeedKmH(sKmS.toFixed(0));
 
-  }, [speedK, distance]);
+    calculateTime();
+    localStorage.setItem('ETAForm.speedK', speedK);
+
+  // eslint-disable-next-line
+  }, [speedK]);
+
+
+  //set time on distance
+  useEffect(() => {
+
+    calculateTime();
+    localStorage.setItem('ETAForm.distance', distance);
+
+  // eslint-disable-next-line
+  }, [distance]);
+
+  //run onComponentMount
+  useEffect(() => {
+    calculateTime();
+    
+  // eslint-disable-next-line
+  }, []);
 
   function handleFocus(e){
     e.target.select();
+  }
+
+  function calculateTime(){
+      var t = '';
+      if(distance && speedK){
+        t = (distance/(speedK*kntsToMs)).toFixed(1);
+        var eta = getETA(t);
+        setETA(eta);
+        t = secondsToTime(t);
+      } else {
+        t = 'N/A';
+      }
+      setTime(t);
   }
 
 
