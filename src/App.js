@@ -21,7 +21,7 @@ function Copyright() {
     <Box mt={2}>
       <Typography variant="body2" color="textSecondary" align="center">
         <Link color="primary" href="https://acte.ltd">
-          ACTE Services Ltd.
+          ACTE Technology Co. Ltd.
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
