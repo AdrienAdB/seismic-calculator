@@ -1,39 +1,20 @@
-/*
-Result paper view
-
-props: title, value, description
-*/
-
 import React from 'react';
-
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2),
-    height: "100%"
-  },
-}));
-
+import { Container } from 'react-bootstrap';
 
 export default function Result(props){
-  const classes = useStyles();
 
   return(
-    <Paper className={classes.root} elevation={2}>
-      <Typography variant="h6" gutterBottom align="center">
+    <Container className="border py-3 my-5 box z-depth-1 result">
+      <p className="text-center title">
         {props.title}
-      </Typography>
-      <Typography variant="h4" gutterBottom align="center">
+      </p>
+      <p className="text-center value">
         {props.value}
-      </Typography>
-      <Typography gutterBottom align="center">
+      </p>
+      <p className="text-center description">
         {props.description}
-      </Typography>
-    </Paper>
+      </p>
+    </Container>
   );
-
 
 }

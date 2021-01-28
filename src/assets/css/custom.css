@@ -1,0 +1,76 @@
+body, html{
+  color: black;
+  background-color: #f1f1f1;
+  font-family: Montserrat;
+}
+
+h1, h2, h3, h4{
+  color: #f2711c;
+  padding-bottom: 25px;
+}
+
+.wrapper{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  min-height: 50vh;
+  font-size: 1.1em;
+}
+
+a{
+  color: inherit;
+}
+a:hover{
+  color: black;
+}
+
+.nav-link:hover{
+  opacity: 0.9;
+  color: inherit;
+}
+
+.links a{
+  text-decoration: underline;
+}
+.links a:hover{
+  color: #f2711c;
+  text-decoration: underline;
+}
+
+.box{
+  color: black;
+  background-color: white; /*#343a40;*/
+  border-radius: 5px;
+}
+
+.z-depth-1, input, select{
+  box-shadow: 2px 2px 5px 2px #ddd;
+}
+
+.text-orange{
+  color: #f2711c;
+}
+
+.form-control:focus{
+  border-color: #f2711c;
+  box-shadow: 0 0 0 0.2rem rgb(242 113 28 / 25%)
+}
+
+hr{
+  border-color: #f2711c;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.result .title{
+  font-size: 1.8em;
+}
+
+.result .value{
+  font-size: 2.25em;
+  font-weight: bolder;
+}
+
+.result .description{
+  font-size: 1.5em;
+}
