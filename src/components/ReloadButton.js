@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import * as serviceWorker from '../serviceWorker';
+import * as serviceWorker from '../service-worker';
 
 
 function handleReload() {
@@ -25,9 +25,6 @@ export default function ReloadButton(){
           Reload
         </Button>
     </div>
-
   );
-
-
 
 }
