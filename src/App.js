@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap'
-import {register as registerServiceWorker } from './serviceWorker';
 import Footer from './components/Footer';
 
 import Welcome from './pages/Welcome';
@@ -111,5 +110,3 @@ export default App;
 if (document.getElementById('app')) {
     ReactDOM.render(<App />, document.getElementById('app'));
 }
-
-registerServiceWorker();

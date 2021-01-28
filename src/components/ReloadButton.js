@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import {unregister } from '../serviceWorker';
+import * as serviceWorker from '../serviceWorker';
 
 
 function handleReload() {
   localStorage.clear();
-  unregister();
+  serviceWorker.unregister();
   window.location.reload(true);
 }
 
