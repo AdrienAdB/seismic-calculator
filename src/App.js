@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap'
-
+import {register as registerServiceWorker } from './serviceWorker';
 import Footer from './components/Footer';
 
 import Welcome from './pages/Welcome';
@@ -43,11 +43,8 @@ function Switcher(props){
       <Route exact path="/eta" component={Eta} />
       <Route exact path="/turn" component={Turn} />
       <Route exact path="/cfm" component={Cfm} />
-
       <Route exact path="/source" component={Source} />
-
       <Route exact path="/" component={Welcome} />
-
     </Switch>
   );
 
@@ -115,4 +112,4 @@ if (document.getElementById('app')) {
     ReactDOM.render(<App />, document.getElementById('app'));
 }
 
-//registerServiceWorker();
+registerServiceWorker();
