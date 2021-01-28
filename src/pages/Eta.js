@@ -87,12 +87,10 @@ export default function ETAForm(){
 
     <PageHeader title="ETA Estimated Arrival Time" />
 
-    <Row container spacing={3}>
-
-      <Col item xs={12} md={6}>
+    <Row>
+      <Col xs={12} md={6}>
           <Form.Label htmlFor="speedK">Speed BSP (knts)</Form.Label>
           <Form.Control
-            fullWidth
             type="number"
             name="speedK"
             placeholder="Enter speed in knots..."
@@ -104,10 +102,9 @@ export default function ETAForm(){
             variant="outlined"/>
       </Col>
 
-      <Col item xs={12} md={6}>
+      <Col xs={12} md={6}>
           <Form.Label htmlFor="distance">Distance (m)</Form.Label>
           <Form.Control
-            fullWidth
             type="number"
             name="distance"
             placeholder="Enter distance between shots..."
@@ -121,14 +118,14 @@ export default function ETAForm(){
 
     </Row>
 
-    <Row pt={8}>
-        <Col item xs={12} md={6}>
+    <Row>
+        <Col xs={12} md={6}>
             <Result
               title="Time"
               value={time}
               description={displayETA(eta)}/>
         </Col>
-        <Col item xs={12} md={6}>
+        <Col xs={12} md={6}>
             <Result
               title="Speed"
               value={speedMs+' m/s'}

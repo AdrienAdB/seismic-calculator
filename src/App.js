@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from 'react-dom';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap'
 
 import Footer from './components/Footer';
@@ -13,9 +13,30 @@ import Turn from './pages/Turn';
 import Source from './pages/Source';
 import Cfm from './pages/Cfm';
 
-//import Error404 from './components/Error404';
+
+function usePageViews() {
+
+  let location = useLocation();
+
+  useEffect(() => {
+
+    /* Analytics */
+    try {
+
+      window._paq.push(['setCustomUrl', location.pathname+location.search]);
+      window._paq.push(['deleteCustomVariables', 'page']);
+      setTimeout(function(){ window._paq.push(['trackPageView']) }, 500);
+
+    } catch (e) {
+        console.log(e);
+    }
+  }, [location]);
+
+}
 
 function Switcher(props){
+
+  usePageViews();
 
   return(
     <Switch>
@@ -68,7 +89,6 @@ const NavComponent = () => {
   );
 
 }
-
 
 
 const App = (props) => {
