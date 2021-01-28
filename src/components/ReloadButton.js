@@ -9,7 +9,7 @@ function handleReload() {
 export default function ReloadButton(){
 
   return (
-    <div class="text-muted small text-center pt-3">
+    <div className="text-muted small text-center pt-3">
       <p></p>
       <p>
         We enforced caching for slow internet connection. Click reload below if you're experiencing issues.
