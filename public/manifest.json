@@ -1,6 +1,25 @@
 {
   "short_name": "Seismic Calculator",
   "name": "Seismic Calculator",
-  "start_url": ".",
-  "display": "standalone"
+  "description": "An open source project made with ReactJS. ACTE Technology Ltd. 2021.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }

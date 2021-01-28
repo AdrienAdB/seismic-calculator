@@ -1,79 +1,98 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import ReactDOM from 'react-dom';
 
-import SimpleTabs from './components/SimpleTabs';
-import ReloadButton from './components/ReloadButton';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
 
+import Footer from './components/Footer';
 
-import { makeStyles } from '@material-ui/core/styles';
+import Welcome from './pages/Welcome';
+import Eta from './pages/Eta';
+import Turn from './pages/Turn';
+import Source from './pages/Source';
+import Cfm from './pages/Cfm';
 
-const useStyles = makeStyles(theme => ({
-  wrapper: {
-    minHeight: "50vh"
-  },
-}));
+//import Error404 from './components/Error404';
 
-function Copyright() {
-  return (
-    <Box mt={2}>
-      <Typography variant="body2" color="textSecondary" align="center">
-        <Link color="primary" href="https://acte.ltd">
-          ACTE Technology Co. Ltd.
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    </Box>
-  );
-}
+function Switcher(props){
 
-function OpenSourceProject(){
   return(
-    <Link target="_blank" color="primary" href="https://github.com/AdrienAdB/seismic-calculator">
-      open source project
-    </Link>
+    <Switch>
+      <Route exact path="/eta" component={Eta} />
+      <Route exact path="/turn" component={Turn} />
+      <Route exact path="/cfm" component={Cfm} />
+
+      <Route exact path="/source" component={Source} />
+
+      <Route exact path="/" component={Welcome} />
+
+    </Switch>
   );
+
 }
 
 
-export default function App() {
+const NavComponent = () => {
 
-  const classes = useStyles();
+  return(
+
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand>
+          <LinkContainer to="/">
+            <Nav.Link>Seismic Calculator</Nav.Link>
+          </LinkContainer>
+        </Navbar.Brand>
+
+        <Nav className="mr-auto">
+
+          <LinkContainer to="/eta">
+            <Nav.Link>ETA</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/turn">
+            <Nav.Link>Turn</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/source">
+            <Nav.Link>Source</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer to="/cfm">
+            <Nav.Link>CFM</Nav.Link>
+          </LinkContainer>
+        </Nav>
+
+      </Navbar>
+
+  );
+
+}
+
+
+
+const App = (props) => {
 
   return (
-      <Container maxWidth="sm" >
+      <Router>
+        <NavComponent />
 
-        <Box
-          borderRadius="5px"
-          boxShadow={1}
-          bgcolor="#fff"
-          my={4}
-          px={2}
-          py={6}>
-          <Typography variant="h4" component="h1" gutterBottom align="center">
-            Seismic Calculator
-          </Typography>
-          <Box className={classes.wrapper} my={4} minHeigth='50vh'>
-            <SimpleTabs />
-          </Box>
-          <Box mt={4}>
-            <Typography color="textSecondary" align="center">
-              An <OpenSourceProject /> made with ReactJS and Material UI
-            </Typography>
-          </Box>
+        <Container fluid className="py-5" id="page">
+          <Container className="wrapper z-depth-1">
+            <Switcher />
+          </Container>
+        </Container>
 
-          <Copyright />
-
-          <ReloadButton />
-
-
-        </Box>
-
-      </Container>
-
-
+        <Footer />
+      </Router>
   );
 }
+
+export default App;
+
+
+if (document.getElementById('app')) {
+    ReactDOM.render(<App />, document.getElementById('app'));
+}
+
+//registerServiceWorker();
