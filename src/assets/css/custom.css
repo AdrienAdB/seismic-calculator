@@ -14,8 +14,8 @@ h1, h2, h3, h4{
   border-radius: 5px;
   padding: 30px;
   min-height: 50vh;
-  font-size: 1.1em;
 }
+
 
 a{
   color: inherit;
@@ -47,6 +47,10 @@ a:hover{
   box-shadow: 2px 2px 5px 2px #ddd;
 }
 
+input, select{
+  margin-bottom: 15px;
+}
+
 .text-orange{
   color: #f2711c;
 }
@@ -73,4 +77,23 @@ hr{
 
 .result .description{
   font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .wrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .links{
+    padding-left: 15px;
+  }
 }
