@@ -29,3 +29,4 @@ yarn-error.log*
 package-lock.json
 
 /public/analytics.js
+push_to_server.sh
