@@ -9,8 +9,8 @@ export const getVolumePerMinute = (speedK, interval, volume) => {
   let cmh = cuinPerMinute*cuinToCubicmeter*60;
 
   return {
-    cfm: cfm.toFixed(3),
-    cmh: cmh.toFixed(3)
+    cfm: cfm.toFixed(1),
+    cmh: cmh.toFixed(1)
   }
 
 }

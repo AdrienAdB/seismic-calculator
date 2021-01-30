@@ -1,0 +1,152 @@
+@import "variables";
+
+body, html{
+  color: $light;
+  background-color: $dark;
+  font-family: Montserrat;
+}
+
+h1, h2, h3, h4{
+  color: $accent;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.wrapper{
+  background-color: $dark;
+  color: $light;
+  border-radius: 5px;
+  padding: 30px;
+  min-height: 70vh;
+}
+
+a{
+  color: inherit;
+}
+
+a:hover{
+  color: $accent;
+}
+
+.nav-link:hover{
+  opacity: 0.9;
+  color: $accent;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+  color: $accent;
+}
+
+
+.links a{
+  text-decoration: underline;
+}
+.links a:hover{
+  color: $accent;
+  text-decoration: underline;
+}
+
+.box{
+  color: $light;
+  background-color: $dark;
+  border-radius: 5px;
+  //border: 1px solid $accent3 !important;
+  border-color: $dark !important;
+  box-shadow: 0 0 5px 2px $accent3;
+}
+
+.header{
+  border-radius: 5px;
+  //border: 1px solid $accent3 !important;
+  border-color: $dark !important;
+  box-shadow: 0 0 5px 2px $accent;
+  padding: 25px;
+  margin-bottom: 50px;
+}
+
+.text-orange{
+  color: $accent;
+}
+
+.text-muted{
+  color: $grey !important;
+}
+
+input, select{
+  margin-bottom: 15px;
+}
+
+.form-control{
+  color: $accent2;
+  background-color: $dark;
+  border-color: $dark;
+  box-shadow: 0 0 5px 2px $accent2;
+}
+
+.form-control:focus{
+  border-color: $accent2;
+  color: $accent2;
+  background-color: $dark;
+  box-shadow: 0 0 0 0.1rem $accent2l
+}
+
+.form-control:disabled, .form-control[readonly]{
+  color: $grey;
+  background-color: $dark;
+}
+
+.form-label{
+  color: $accent2;
+}
+
+hr{
+  border-color: $light;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-secondary {
+    color: $dark;
+    background-color: $grey;
+    border-color: $grey;
+}
+.btn-secondary:hover {
+    color: $light;
+    background-color: $dark;
+    border-color: $light;
+}
+
+.result .title{
+  font-size: 1.8em;
+  color: $accent3;
+}
+
+.result .value{
+  color: $accent3;
+  font-size: 2.25em;
+  font-weight: bolder;
+}
+
+.result .description{
+  color: $accent3;
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .wrapper{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .links{
+    padding-left: 15px;
+  }
+}
