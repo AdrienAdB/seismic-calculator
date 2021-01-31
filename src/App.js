@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 
 import { Container, Navbar, Nav } from 'react-bootstrap';
@@ -54,31 +54,35 @@ const NavComponent = () => {
 
   return(
 
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect={true}>
+
         <Navbar.Brand>
           <LinkContainer to="/">
             <Nav.Link>Seismic Calculator</Nav.Link>
           </LinkContainer>
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
 
-        <Nav className="mr-auto">
+          <Nav className="mr-auto">
 
-          <LinkContainer to="/eta">
-            <Nav.Link>ETA</Nav.Link>
-          </LinkContainer>
+            <LinkContainer to="/eta">
+              <Nav.Link>ETA</Nav.Link>
+            </LinkContainer>
 
-          <LinkContainer to="/turn">
-            <Nav.Link>Turn</Nav.Link>
-          </LinkContainer>
+            <LinkContainer to="/turn">
+              <Nav.Link>Turn</Nav.Link>
+            </LinkContainer>
 
-          <LinkContainer to="/source">
-            <Nav.Link>Source</Nav.Link>
-          </LinkContainer>
+            <LinkContainer to="/source">
+              <Nav.Link>Source</Nav.Link>
+            </LinkContainer>
 
-          <LinkContainer to="/cfm">
-            <Nav.Link>CFM</Nav.Link>
-          </LinkContainer>
-        </Nav>
+            <LinkContainer to="/cfm">
+              <Nav.Link>CFM</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
 
       </Navbar>
 
